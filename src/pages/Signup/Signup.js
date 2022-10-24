@@ -3,16 +3,35 @@ import {AuthContext} from '../../Assets/Contexts/AuthProvider'
 import "./signup.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {  FaGoogle } from "react-icons/fa";
+import {  FaGithub, FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
+
+const googleProvider = new GoogleAuthProvider()
+const gitHubProvider = new GithubAuthProvider()
 
 
 
 
 const Signup = () => {
-  const {createUserWithEmail} = useContext(AuthContext)
-  console.log(createUserWithEmail)
+  const {createUserWithEmail,signInWithProvider} = useContext(AuthContext)
+  
+
+  // signin with popoup
+
+  const providerSignIn = (provider)=>{
+    signInWithProvider(provider)
+    .then(result=>{
+      toast.success('successfully Logged in')
+    })
+    .catch(err=>{
+      toast.error(err.message)
+    })
+
+  }
+
+
 
 const handleRegister=(e)=>{
   e.preventDefault();
@@ -76,9 +95,13 @@ const handleRegister=(e)=>{
                 <p className="d-inline">or</p>
               </h3>
               <div className="d-flex align-items-center justify-content-center pt-3">
-              <Button className="google-btn  w-100 mx-3 text-center" variant="outline-dark" >
+              <Button className="google-btn  w-100 mx-3 text-center" variant="outline-dark" onClick={()=>providerSignIn(googleProvider)} >
                 <span className="google-icon"><FaGoogle/></span>
-                Containue With Google
+                Google
+              </Button>
+              <Button className="google-btn  w-100 mx-3 text-center" variant="outline-dark" onClick={()=>providerSignIn(gitHubProvider)} >
+                <span className="google-icon"><FaGithub/></span>
+                 GiHUB
               </Button>
             </div>
               </div>
