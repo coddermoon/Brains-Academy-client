@@ -3,16 +3,16 @@ import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const SingleCart = ({course}) => {
-    const {title,id}= course
+    const {name,id,thumbnail,regularPrice,mainPrice}= course
     return (
         <Col className='my-2' md="6">
            <Card >
-      <Card.Img variant="top" src="https://sorobindu.com/wp-content/uploads/2022/06/wp-advance.png" />
+      <Card.Img variant="top" src={thumbnail} />
       <Card.Body>
-        <Card.Title className='fw-bold'>{title}</Card.Title>
+        <Card.Title className='fw-bold'>{name}</Card.Title>
         <h4 className=''>
-            <span className='m-3'>5000 ৳</span>
-            <del className='m-3 text-muted'>3000 ৳</del>
+            <span className='m-3'>{mainPrice} ৳</span>
+            <del className='m-3 text-muted'>{regularPrice} ৳</del>
             </h4>
      
         

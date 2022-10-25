@@ -20,7 +20,7 @@ const Banner = () => {
             </Col>
             <Col lg="6">
               <div  className="d-flex align-items-center">
-              <img src="https://img.freepik.com/free-vector/hand-holding-smartphone-with-tutor-screen_1262-20644.jpg" alt="prof" />
+              <img className='img-fluid' src="https://img.freepik.com/free-vector/hand-holding-smartphone-with-tutor-screen_1262-20644.jpg" alt="prof" />
               </div>
             </Col>
           </Row>

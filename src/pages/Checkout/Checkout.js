@@ -4,8 +4,8 @@ import { useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
     const detailsData = useLoaderData()
-    const {thumbnail,name,details,price} = detailsData
-    console.log(detailsData)
+    const {thumbnail,name,details,mainPrice} = detailsData
+   
     return (
         <div>
            <Row>
@@ -13,7 +13,7 @@ const Checkout = () => {
             <img className='img-fluid' src={thumbnail} alt="" />
             <h3 className='mx-5 p-2'> <strong> {name}</strong></h3>
             <p className='mx-5 p-2'>{details}</p>
-            <h3  className='mx-5 p-2'><strong>price : {price ? price : 5000}</strong> ৳</h3>
+            <h3  className='mx-5 p-2'><strong>price : {mainPrice}</strong> ৳</h3>
             </Col>
             <Col md="6">
 
