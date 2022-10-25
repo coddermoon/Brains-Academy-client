@@ -2,9 +2,20 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import {FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Lottie from 'react-lottie'
+import banner from './../../../Assets/images/herobanner.json'
 import './Banner.css'
 
 const Banner = () => {
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: banner,
+   
+  };
+
+
     return (
         <section id='banner'>
          <Container>
@@ -20,7 +31,13 @@ const Banner = () => {
             </Col>
             <Col lg="6">
               <div  className="d-flex align-items-center">
-              <img className='img-fluid' src="https://img.freepik.com/free-vector/hand-holding-smartphone-with-tutor-screen_1262-20644.jpg" alt="prof" />
+
+              <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
+           
               </div>
             </Col>
           </Row>
