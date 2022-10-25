@@ -4,14 +4,35 @@ import SingleCart from "../SingleCard/SingleCart";
 
 const CourseCard = () => {
   const [categories, setCategories] = useState([]);
+  const [courses,setCourses]= useState([])
 
   useEffect(() => {
     fetch("https://learning-platform-assignment.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
-  }, []);
+  },[] );
 
-  console.log(categories);
+
+
+  useEffect(() => {
+    fetch("https://learning-platform-assignment.vercel.app/courses")
+      .then((res) => res.json())
+      .then((data) =>setCourses(data));
+  },[]);
+
+
+
+
+
+ const manageLoadData=  (category) =>{
+
+fetch(`https://learning-platform-assignment-coddermoon-gmailcom.vercel.app/category/${category}`)
+.then(res=>res.json())
+.then(data=>setCourses(data))
+
+ 
+ }
+
 
   return (
     <div className="mt-5">
@@ -21,6 +42,7 @@ const CourseCard = () => {
             key={category.category}
             variant="outline-primary"
             className="m-2"
+            onClick={()=>manageLoadData(category.category)}
           >
             {category.name}
           </Button>
@@ -28,9 +50,12 @@ const CourseCard = () => {
       </div>
       <div className="cards my-4">
         <Row>
-            <SingleCart/>
-            <SingleCart/>
-            <SingleCart/>
+           {
+            courses.map(course=> <SingleCart
+            key={course.id}
+            course={course}
+            />)
+           }
         </Row>
       </div>
     </div>

@@ -35,6 +35,7 @@ export const routes = createBrowserRouter([
                         path:'/courses',
                         element:<CourseCard/>
                     }
+                   
                 ]
             },
         
