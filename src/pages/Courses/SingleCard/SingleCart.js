@@ -7,12 +7,14 @@ const SingleCart = () => {
            <Card >
       <Card.Img variant="top" src="https://sorobindu.com/wp-content/uploads/2022/06/wp-advance.png" />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <button className='mainBtn'>Go somewhere</button>
+        <Card.Title className='fw-bold'>Card Title</Card.Title>
+        <h4 className=''>
+            <span className='m-3'>5000 ৳</span>
+            <del className='m-3 text-muted'>3000 ৳</del>
+            </h4>
+     
+        
+        <button className='mainBtn'>Try Premium Access</button>
       </Card.Body>
     </Card>
         </Col>
