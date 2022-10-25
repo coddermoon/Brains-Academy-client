@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const SingleCart = ({course}) => {
-    const {title}= course
+    const {title,id}= course
     return (
         <Col className='my-2' md="6">
            <Card >
@@ -15,7 +16,7 @@ const SingleCart = ({course}) => {
             </h4>
      
         
-        <button className='mainBtn'>See Details information</button>
+       <Link to={`/courses/${id}`}> <button className='mainBtn'>See Details information</button></Link>
       </Card.Body>
     </Card>
         </Col>
