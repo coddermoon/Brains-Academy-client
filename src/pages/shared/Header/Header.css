@@ -10,3 +10,8 @@
 .navlink:hover{
     color: #39ac31;
 }
+
+.logo{
+    height: 60px;
+    width: auto;
+}
