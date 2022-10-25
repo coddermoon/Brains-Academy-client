@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import {FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './Banner.css'
 
 const Banner = () => {
@@ -13,7 +14,7 @@ const Banner = () => {
 <h1>Envesting in Knowlwdge and <span className='title'>Your Future</span></h1>
 <p>With the helping of E-learning,Create Your own path and drive your skill in your own achive</p>
 
-<button className="mainBtn">Enroll Now <FaArrowRight/> </button>
+<button  className="mainBtn"><Link to='/courses'>Enroll Now  <FaArrowRight/> </Link></button>
 </div>
 
             </Col>
