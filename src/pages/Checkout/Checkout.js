@@ -21,12 +21,12 @@ const Checkout = () => {
       className="py-5"
       fluid
       style={{
-        backgroundImage:
+        background:
           "url(https://mdbcdn.b-cdn.net/img/Photos/Others/background3.webp)",
       }}
     >
       <Row className=" d-flex justify-content-center">
-        <Col md="10" lg="8" xl="5">
+        <Col md="10"  >
           <Card className="rounded-3">
             <Card.Body className="p-4">
               <div className="text-center mb-4">
