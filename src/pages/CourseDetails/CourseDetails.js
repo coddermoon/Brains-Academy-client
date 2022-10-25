@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './CourseDetails.css'
 
 
@@ -8,7 +8,7 @@ import './CourseDetails.css'
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData()
-    const {name,thumbnail,course_description,details}= courseDetails
+    const {name,thumbnail,course_description,details,id}= courseDetails
     const {duration,Certificate,topics,instructor,support}= course_description
     const {phone,email}= support
 console.log(courseDetails)
@@ -25,7 +25,9 @@ console.log(email)
                 <h5><strong>Emmergency Support :</strong><a href={`tel:${phone}`}>{phone}</a></h5>
                 </div>
                <div className="d-flex flex-column">
-               <button className='mainBtn'>Get Premium Access</button>
+              <Link to={`/checkout/${id}`}>
+              <button className='mainBtn'>Get Premium Access</button>
+              </Link>
                </div>
             </Col>
             <Col md="7">

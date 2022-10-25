@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../App";
+import Checkout from "../../pages/Checkout/Checkout";
 import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
 import CourseCard from "../../pages/Courses/CoursesCard/CourseCard";
@@ -14,6 +15,13 @@ export const routes = createBrowserRouter([
         path:'/',
         element: <App/>,
         children:[
+            
+                    {
+                        path:'/checkout/:id',
+                        loader:({params})=> fetch(`https://learning-platform-assignment.vercel.app/course/${params.id}`) ,
+                        element: <Checkout/>
+                    },
+
             {
                 path:'/login',
               
