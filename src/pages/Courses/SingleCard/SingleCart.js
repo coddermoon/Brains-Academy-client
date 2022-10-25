@@ -15,7 +15,7 @@ const SingleCart = ({course}) => {
             </h4>
      
         
-        <button className='mainBtn'>Try Premium Access</button>
+        <button className='mainBtn'>See Details information</button>
       </Card.Body>
     </Card>
         </Col>
