@@ -70,6 +70,11 @@ const handleRegister=(e)=>{
             <Form.Group className="m-3 py-2" >
               <Form.Control type="text" name="name" placeholder="Enter Your Fullname"  required/>
             </Form.Group>
+
+            <Form.Group className="m-3 py-2" >
+              <Form.Control type="url" name="photoUrl" placeholder="profile photo url"  required/>
+            </Form.Group>
+
             <Form.Group className="m-3 py-2" >
               <Form.Control type="email" name="email" placeholder="Your Name" required />
             </Form.Group>
