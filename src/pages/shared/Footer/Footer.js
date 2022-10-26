@@ -1,8 +1,9 @@
 import React from 'react';
 import './footer.css'
-import { CDBFooter,CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import { CDBFooter,CDBBox, CDBIcon } from 'cdbreact';
 import {Link} from "react-router-dom";
 import logo from '../../../Assets/images/logo.png'
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (
         <CDBFooter className="shadow bg-grad">
@@ -61,15 +62,15 @@ const Footer = () => {
           <small className="text-center" style={{ width: '50%' }}>
             &copy; Brains Academy, 2022. All rights reserved.
           </small>
-          <CDBBtn  className="p-2">
-            <CDBIcon fab icon="facebook-f" />
-          </CDBBtn>
-          <CDBBtn  className="mx-3 p-2">
-            <CDBIcon fab icon="twitter" />
-          </CDBBtn>
-          <CDBBtn  className="p-2">
-            <CDBIcon fab icon="instagram" />
-          </CDBBtn>
+          <button  className="iconBtn">
+           <FaFacebook className='socialIcon'/>
+          </button>
+          <button  className="iconBtn">
+            <FaTwitter className='socialIcon'/>
+          </button>
+          <button  className="iconBtn">
+           <FaInstagram className='socialIcon'/>
+          </button>
         </CDBBox>
       </CDBBox>
     </CDBFooter>
