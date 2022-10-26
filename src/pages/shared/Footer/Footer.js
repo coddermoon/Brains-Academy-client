@@ -5,12 +5,12 @@ import logo from '../../../Assets/images/logo.png'
 const Footer = () => {
     return (
         <CDBFooter className="shadow bg-grad">
-      <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
+      <CDBBox display="flex" flex="column" className="mx-auto py-5 text-white" style={{ width: '90%' }}>
         <CDBBox display="flex" justifyContent="between" className="flex-wrap">
           <CDBBox>
             <a href="/" className="d-flex align-items-center p-0 text-dark">
               <img alt="logo" src={logo} width="80px" />
-              <span className="ml-3 h5 font-weight-bold">Brains Academy</span>
+              <span className="ml-3 h5 font-weight-bold text-white">Brains Academy</span>
             </a>
             <p className="my-3" style={{ width: '250px' }}>
             With the helping of E-learning,Create Your own path and drive your skill in your own achive
