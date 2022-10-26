@@ -9,6 +9,7 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import NotFound from "../../pages/shared/NotFound/NotFound";
 import Signup from "../../pages/Signup/Signup";
+import PrivetRoute from "./PrivetRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -47,7 +48,7 @@ export const routes = createBrowserRouter([
                     {
                         path:'/courses/:id',
                         loader:({params})=> fetch(`https://learning-platform-assignment.vercel.app/course/${params.id}`) ,
-                        element: <CourseDetails/>
+                        element:<PrivetRoute> <CourseDetails/></PrivetRoute>
                     }
                    
                 ]
