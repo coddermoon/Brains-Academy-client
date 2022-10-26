@@ -1,10 +1,12 @@
 import React from 'react';
 import './footer.css'
-import { CDBFooter,CDBBox, CDBFooterLink, CDBBtn, CDBIcon } from 'cdbreact';
+import { CDBFooter,CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import {Link} from "react-router-dom";
 import logo from '../../../Assets/images/logo.png'
 const Footer = () => {
     return (
         <CDBFooter className="shadow bg-grad">
+          
       <CDBBox display="flex" flex="column" className="mx-auto py-5 text-white" style={{ width: '90%' }}>
         <CDBBox display="flex" justifyContent="between" className="flex-wrap">
           <CDBBox>
@@ -14,6 +16,7 @@ const Footer = () => {
             </a>
             <p className="my-3" style={{ width: '250px' }}>
             With the helping of E-learning,Create Your own path and drive your skill in your own achive
+           
             </p>
           </CDBBox>
           <CDBBox>
@@ -21,10 +24,10 @@ const Footer = () => {
             Brains Academy
             </p>
             <CDBBox flex="column" display="flex" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink to="/">Resources</CDBFooterLink>
-              <CDBFooterLink to="/">About Us</CDBFooterLink>
-              <CDBFooterLink to="/">Contact</CDBFooterLink>
-              <CDBFooterLink to="/">Blog</CDBFooterLink>
+              <Link to="/">Resources</Link>
+              <Link to="/">About Us</Link>
+              <Link to="/">Contact</Link>
+              <Link to="/">Blog</Link>
             </CDBBox>
           </CDBBox>
           <CDBBox>
@@ -32,9 +35,9 @@ const Footer = () => {
               Help
             </p>
             <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink to="/">Support</CDBFooterLink>
-              <CDBFooterLink to="/">Sign Up</CDBFooterLink>
-              <CDBFooterLink to="/">Sign In</CDBFooterLink>
+              <Link to="/">Support</Link>
+              <Link to="/">Sign Up</Link>
+              <Link to="/">Sign In</Link>
             </CDBBox>
           </CDBBox>
           <CDBBox>
@@ -42,9 +45,9 @@ const Footer = () => {
               Products
             </p>
             <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink to="/">Windframe</CDBFooterLink>
-              <CDBFooterLink to="/">Loop</CDBFooterLink>
-              <CDBFooterLink to="/">Contrast</CDBFooterLink>
+              <Link to="/">Windframe</Link>
+              <Link to="/">Loop</Link>
+              <Link to="/">Contrast</Link>
             </CDBBox>
           </CDBBox>
         </CDBBox>
