@@ -27,7 +27,7 @@ const Footer = () => {
               <Link to="/">Resources</Link>
               <Link to="/">About Us</Link>
               <Link to="/">Contact</Link>
-              <Link to="/">Blog</Link>
+              <Link to="/blog">Blog</Link>
             </CDBBox>
           </CDBBox>
           <CDBBox>
@@ -36,8 +36,8 @@ const Footer = () => {
             </p>
             <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0' }}>
               <Link to="/">Support</Link>
-              <Link to="/">Sign Up</Link>
-              <Link to="/">Sign In</Link>
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/login">Sign In</Link>
             </CDBBox>
           </CDBBox>
           <CDBBox>

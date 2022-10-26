@@ -36,16 +36,20 @@ const Signup = () => {
 const handleRegister=(e)=>{
   e.preventDefault();
   const form = e.target 
-  // const name = form.name.value
+  const name = form.name.value
+  const photoUrl = form.photoUrl.value
   const email = form.email.value
   const password = form.password.value
 
   createUserWithEmail(email,password)
   .then(result=>{
 
-    toast.success("successfully User Created")
+    const user =result.user
+    user.displayName = name;
+     user.photoURL = photoUrl
 
-    console.log(result.user)
+   toast.success("successfully User Created")
+   console.log(user)
   })
   .catch(err=>{
     toast.error(err.message)
