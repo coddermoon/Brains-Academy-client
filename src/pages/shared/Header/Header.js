@@ -4,8 +4,19 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../Assets/images/logo.png";
 import { AuthContext } from "../../../Assets/Contexts/AuthProvider";
+import toast from "react-hot-toast";
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
+
+const handleLogout = ()=>{
+  logOut()
+  .then(()=>{
+      toast.success("logout successfull")
+  })
+  .catch(error=>{
+      toast.error(error.message)
+  })
+}
 
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-grad" variant="dark">
@@ -27,13 +38,11 @@ const Header = () => {
               Blog
             </Link>
 
-            <input type="checkbox" id="check1" class="toggle"/>
-  <label for="check1"></label>
-
-
-
             {user?.uid ? (
               <>
+               <Link className="navlink" onClick={handleLogout}>
+              Logout
+            </Link>
                 <img
                   style={{ height: "45px", borderRadius: "50%" }}
                   src={
