@@ -1,9 +1,22 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Assets/Contexts/AuthProvider';
 import './CourseAside.css'
 
 const CourseAside = () => {
-    const {user}= useContext(AuthContext)
+    const {user,logOut}= useContext(AuthContext)
+
+
+    const handleLogout = ()=>{
+        logOut()
+        .then(()=>{
+            toast.success("logout successfull")
+        })
+        .catch(error=>{
+            toast.error(error.message)
+        })
+    }
+
     return (
         <>
            <div className="profile ">
@@ -16,7 +29,7 @@ const CourseAside = () => {
             <p>E-Mail :{user?.email ? user.email : 'null'}</p>
             
             </div>
-            <button className='mainBtn'>Logout</button>
+            <button onClick={handleLogout} className='mainBtn'>Logout</button>
            </div>
         </>
     );
