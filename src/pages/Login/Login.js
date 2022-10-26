@@ -60,11 +60,13 @@ const Login = () => {
         Submit
       </button>
      
-         </div>
-       <Form.Group>
+         </div >
+      <div className="login-form-recovery">
+      <Form.Group>
         <p className="text-center pt-3 pb-0 mb-0 ">Forget Password? <Link className="text-main" to="/">Recovery Now</Link></p>
         <p className="text-center ">New user? <Link className="text-main" to="/signup">Register now</Link></p>
        </Form.Group>
+      </div>
           </div>
         </div>
       </Form>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import {AuthContext} from '../../Assets/Contexts/AuthProvider'
 import "./signup.css";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {  FaGithub, FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
@@ -16,14 +16,17 @@ const gitHubProvider = new GithubAuthProvider()
 
 const Signup = () => {
   const {createUserWithEmail,signInWithProvider} = useContext(AuthContext)
-  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   // signin with popoup
 
   const providerSignIn = (provider)=>{
     signInWithProvider(provider)
     .then(result=>{
-      toast.success('successfully Logged in')
+      navigate(from, {replace: true});
+      toast.success('successfull')
     })
     .catch(err=>{
       toast.error(err.message)
@@ -49,6 +52,7 @@ const handleRegister=(e)=>{
      user.photoURL = photoUrl
 
    toast.success("successfully User Created")
+   
    console.log(user)
   })
   .catch(err=>{
@@ -91,12 +95,14 @@ const handleRegister=(e)=>{
               </button>
             </div>
             <Form.Group>
-              <p className="text-center pt-3 mb-0">
-                Forget Password? <Link to="/">Recovery Now</Link>
+             <div className="main-text">
+             <p className="text-center pt-3 mb-0">
+                Forget Password? <Link className="text-main"  to="/">Recovery Now</Link>
               </p>
               <p className="text-center pt-1">
-                Already Have an Account? <Link to="/login">Login now</Link>
+                Already Have an Account? <Link  className="text-main"  to="/login">Login now</Link>
               </p>
+             </div>
              
 
               <div>

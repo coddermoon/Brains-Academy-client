@@ -26,6 +26,12 @@ const Header = () => {
             <Link className="navlink" to="/blog">
               Blog
             </Link>
+
+            <input type="checkbox" id="check1" class="toggle"/>
+  <label for="check1"></label>
+
+
+
             {user?.uid ? (
               <>
                 <img

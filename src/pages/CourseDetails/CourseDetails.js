@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
+
 import { Link, useLoaderData } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
 import './CourseDetails.css'
 
 
 
 
 const CourseDetails = () => {
+
+    const componentRef = useRef()
+
+    const handlePrint = useReactToPrint({
+        content:()=> componentRef.current,
+        documentTitle:'emp-data',
+        
+    })
+
+    
+
     const courseDetails = useLoaderData()
     const {name,thumbnail,course_description,details,id}= courseDetails
     const {duration,Certificate,topics,instructor,support}= course_description
     const {phone,email}= support
-console.log(courseDetails)
-console.log(email)
+
 
     return (
-        <div className='mt-5'>
+        <div ref={componentRef} style={{width:'100%',height:Window.innerHeight}} className='mt-5'>
           <Row>
             <Col md="5">
            
@@ -27,7 +39,12 @@ console.log(email)
                <div className="d-flex flex-column">
               <Link to={`/checkout/${id}`}>
               <button className='mainBtn'>Get Premium Access</button>
+              <button onClick={handlePrint} className='mainBtn mx-2'>Print Details</button>
               </Link>
+              <div>
+   
+ 
+</div>
                </div>
             </Col>
             <Col md="7">
