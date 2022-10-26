@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../App";
+import Blogs from "../../pages/Blogs/Blogs";
 import Checkout from "../../pages/Checkout/Checkout";
 import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
@@ -54,6 +55,11 @@ export const routes = createBrowserRouter([
                 ]
             },
         
+            {
+                path:'/blog',
+                loader:()=> fetch('https://learning-platform-assignment.vercel.app/blogs'),
+                element: <Blogs/>
+            },
             {
                 path:'*',
                 element: <NotFound/>
