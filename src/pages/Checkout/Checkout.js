@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
+import UseTitle from '../../Assets/Hooks/UseTitle';
 
 const Checkout = () => {
     const detailsData = useLoaderData()
     const {thumbnail,name,details,mainPrice} = detailsData
-   
+   UseTitle('checkout')
     return (
         <div>
            <Row>

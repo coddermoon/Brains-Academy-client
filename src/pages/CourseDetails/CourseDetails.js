@@ -3,6 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 
 import { Link, useLoaderData } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
+import UseTitle from '../../Assets/Hooks/UseTitle';
 import './CourseDetails.css'
 
 
@@ -25,7 +26,7 @@ const CourseDetails = () => {
     const {duration,Certificate,topics,instructor,support}= course_description
     const {phone,email}= support
 
-
+    UseTitle(name)
     return (
         <div ref={componentRef} style={{width:'100%',height:Window.innerHeight}} className='mt-5'>
           <Row>

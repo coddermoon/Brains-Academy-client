@@ -64,7 +64,7 @@ useEffect(() => {
 }, [])
 
 
-console.log(user)
+
 
 
     const authInfo = {createUserWithEmail,loginUserWithEmailAndPass,signInWithProvider,user,logOut,loading}

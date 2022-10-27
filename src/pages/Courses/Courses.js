@@ -3,10 +3,12 @@ import './Courses.css'
 import { Col, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import CourseAside from './CourseAside/CourseAside';
+import UseTitle from '../../Assets/Hooks/UseTitle';
 
 
 const Courses = () => {
 
+    UseTitle('Courses')
 
     return (
       

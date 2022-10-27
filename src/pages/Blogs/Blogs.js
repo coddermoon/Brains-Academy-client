@@ -1,8 +1,10 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import UseTitle from "../../Assets/Hooks/UseTitle";
 
 const Blogs = () => {
+  UseTitle('Blog')
   const blogs = useLoaderData();
 
   return (
