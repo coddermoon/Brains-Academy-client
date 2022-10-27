@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Row } from "react-bootstrap";
+import { AuthContext } from "../../../Assets/Contexts/AuthProvider";
 import SingleCart from "../SingleCard/SingleCart";
 
 const CourseCard = () => {
   const [categories, setCategories] = useState([]);
   const [courses,setCourses]= useState([])
+  const {id,setId } = useContext(AuthContext)
+  
 
   useEffect(() => {
     fetch("https://learning-platform-assignment.vercel.app/categories")
@@ -21,16 +24,18 @@ const CourseCard = () => {
   },[]);
 
 
-
+useEffect(()=>{
+  fetch(`https://learning-platform-assignment-coddermoon-gmailcom.vercel.app/category/${id}`)
+.then(res=>res.json())
+.then(data=>setCourses(data))
+},[id])
 
 
  const manageLoadData=  (category) =>{
 
-fetch(`https://learning-platform-assignment-coddermoon-gmailcom.vercel.app/category/${category}`)
-.then(res=>res.json())
-.then(data=>setCourses(data))
+  setId(category)
 
- 
+
  }
 
 

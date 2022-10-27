@@ -1,11 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { NavLink } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Assets/Contexts/AuthProvider';
 import './CourseAside.css'
 
 const CourseAside = () => {
-    const {user,logOut}= useContext(AuthContext)
+    const [categories, setCategories] = useState([]);
+    const {user,logOut,setId}= useContext(AuthContext)
+    
+    const handleCard=(id)=>{
+        setId(id)
+    }
 
+    useEffect(() => {
+        fetch("https://learning-platform-assignment.vercel.app/categories")
+          .then((res) => res.json())
+          .then((data) => setCategories(data));
+      },[] );
 
     const handleLogout = ()=>{
         logOut()
@@ -35,10 +46,15 @@ const CourseAside = () => {
                 <button onClick={handleLogout} className='mainBtn'>Logout</button>
             </div>
             :
-            <p className='text-center'>No User Found</p>
+            <p className='text-center'>Please Login to Access Details</p>
            }
            </div>
            <div className='lists'>
+            {
+                categories.map(category=> <NavLink className='mx-4 '
+                key={category.id} onClick={()=>handleCard(category.category)}
+                >{category.name}</NavLink>)
+            }
 
            </div>
         </>
