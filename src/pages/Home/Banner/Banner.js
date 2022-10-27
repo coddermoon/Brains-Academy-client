@@ -17,11 +17,11 @@ const Banner = () => {
 
 
     return (
-        <section id='banner'>
+        <section id='banner' >
          <Container>
-         <Row>
-            <Col  className="d-flex align-items-center" lg="6">
-<div>
+         <Row >
+            <Col  className="d-flex align-items-center " lg="6">
+<div >
 <h1>Envesting in Knowlwdge and <span className='title'>Your Future</span></h1>
 <p>With the helping of E-learning,Create Your own path and drive your skill in your own achive</p>
 
@@ -29,7 +29,7 @@ const Banner = () => {
 </div>
 
             </Col>
-            <Col lg="6">
+            <Col lg="6" className=''>
               <div  className="d-flex align-items-center">
 
               <Lottie 

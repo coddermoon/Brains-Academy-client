@@ -23,13 +23,23 @@ const CourseAside = () => {
             <div className="rounded-img my-3">
                 <img src={user?.photoURL ? user.photoURL : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} alt="user" />
             </div>
+           {
+            user?.uid ?
+            <div>
             <div className="info text-start">
-            <p className='text-center'>ID:{user?.uid ? user.uid : 'null'}</p>
-            <p>Name :{user?.displayName ? user.displayName : 'null'}</p>
-            <p>E-Mail :{user?.email ? user.email : 'null'}</p>
-            
+                <p className='text-center'>ID:{user?.uid ? user.uid : 'null'}</p>
+                <p className='text-center'>Name :{user?.displayName ? user.displayName : 'null'}</p>
+                <p className='text-center'>E-Mail :{user?.email ? user.email : 'null'}</p>
+                
+                </div>
+                <button onClick={handleLogout} className='mainBtn'>Logout</button>
             </div>
-            <button onClick={handleLogout} className='mainBtn'>Logout</button>
+            :
+            <p className='text-center'>No User Found</p>
+           }
+           </div>
+           <div className='lists'>
+
            </div>
         </>
     );
