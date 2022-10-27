@@ -84,10 +84,10 @@ const handleRegister=(e)=>{
             </Form.Group>
 
             <Form.Group className="m-3 py-2" >
-              <Form.Control type="email" name="email" placeholder="Your Name" required />
+              <Form.Control type="email" name="email" placeholder="Your Email" required />
             </Form.Group>
             <Form.Group className="m-3 py-2" >
-              <Form.Control type="password" name = "password" placeholder="Enter email" required />
+              <Form.Control type="password" name = "password" placeholder="Enter Password" required />
             </Form.Group>
             <div className="d-flex align-items-center justify-content-center pt-3">
               <button className=" mainBtn w-100 mx-3 text-center" type="submit">

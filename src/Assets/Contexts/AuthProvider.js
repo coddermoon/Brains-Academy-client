@@ -10,6 +10,7 @@ export const AuthContext = createContext()
 
 
 const AuthProvider = ({children}) => {
+    const [loading,setLoading]= useState(true)
 
     const [user,setUser]= useState(null)
    
@@ -52,7 +53,7 @@ useEffect(() => {
 
             setUser(currentUser);
         
-      
+      setLoading(false)
     });
 
     return () => {
@@ -66,7 +67,7 @@ useEffect(() => {
 console.log(user)
 
 
-    const authInfo = {createUserWithEmail,loginUserWithEmailAndPass,signInWithProvider,user,logOut}
+    const authInfo = {createUserWithEmail,loginUserWithEmailAndPass,signInWithProvider,user,logOut,loading}
 
     return (
         <AuthContext.Provider value= {authInfo}>

@@ -53,7 +53,7 @@ const Login = () => {
             </Form.Group >
             <Form.Group className="m-3 py-2" >
              
-              <Form.Control type="password" name="password" placeholder="Enter email" />
+              <Form.Control type="password" name="password" placeholder="Enter Password" />
             </Form.Group>
          <div className="d-flex align-items-center justify-content-center pt-3">
          <button className=" mainBtn w-100 mx-3 text-center" type="submit">
