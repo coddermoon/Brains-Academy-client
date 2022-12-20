@@ -5,8 +5,7 @@ import { AuthContext } from "../../Assets/Contexts/AuthProvider";
 import UseTitle from "../../Assets/Hooks/UseTitle";
 
 const Checkout = () => {
-  const {user} = useContext(AuthContext)
-
+  const { user } = useContext(AuthContext);
 
   const detailsData = useLoaderData();
   const { thumbnail, name, details, mainPrice } = detailsData;
@@ -23,7 +22,32 @@ const Checkout = () => {
     const zipCode = form.zipCode.value;
     const currency = form.currency.value;
     const price = form.price.value;
-    console.log(name,email,adress,zipCode,price,currency);
+
+    const orders = {
+   
+      name,
+      email,
+      adress,
+      zipCode,
+      price,
+      currency,
+     
+    };
+
+    console.log(orders);
+    // post form data 
+    fetch(`http://localhost:5000/orders`, {
+      method: 'POST',
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(orders),
+    })
+    .then(res => res.json())
+    .then(data =>{
+      window.location.replace(data.url)
+    })
+    .catch(err =>console.error(err.message))
   };
 
   return (
@@ -98,14 +122,13 @@ const Checkout = () => {
                       >
                         <Form.Label>Adress</Form.Label>
 
-                        <Form.Control as="textarea"
-                        placeholder="adress"
-                        name="address"
-                        rows={3} />
-
-
+                        <Form.Control
+                          as="textarea"
+                          placeholder="adress"
+                          name="address"
+                          rows={3}
+                        />
                       </Form.Group>
-
 
                       <Row className="my-4">
                         <Col size="7">
@@ -131,9 +154,7 @@ const Checkout = () => {
                           />
                         </Col>
                         <Col size="2">
-                          <Form.Select
-                          name="currency"
-                          defaultValue="BDT">
+                          <Form.Select name="currency" defaultValue="BDT">
                             <option value="BDT">BDT</option>
                             <option value="USD">USD</option>
                           </Form.Select>
