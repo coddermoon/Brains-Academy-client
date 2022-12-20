@@ -7,6 +7,19 @@ const Checkout = () => {
     const detailsData = useLoaderData()
     const {thumbnail,name,details,mainPrice} = detailsData
    UseTitle('checkout')
+
+
+  //  submit form data 
+
+  const handlePayData = (e)=>{
+    e.preventDefault()
+    const form = e.target
+    const name = form.name.value
+    const email = form.email.value
+    const adress = form.adress.value
+    console.log(name)
+  }
+
     return (
         <div>
            <Row>
@@ -28,51 +41,48 @@ const Checkout = () => {
     >
       <Row className=" d-flex justify-content-center">
         <Col md="10"  >
-          <Card className="rounded-3">
+        <form onSubmit={handlePayData}>
+        <Card className="rounded-3">
             <Card.Body className="p-4">
               <div className="text-center mb-4">
                 <h3>Settings</h3>
                 <h6>Payment</h6>
               </div>
-              <p className="fw-bold mb-4 pb-2">Saved cards:</p>
+             
               <div className="d-flex flex-row align-items-center mb-4 pb-1">
-                <img
-                  className="img-fluid"
-                  src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
-                  alt='mastercard'
-                />
+               
                 <div className="flex-fill mx-3">
                   <div className="form-outline">
                     <Form.Control
-                      label="Card Number"
-                      id="form1"
+                      label="name"
+                      id="name"
                       type="text"
                       size="lg"
-                      value="**** **** **** 3193"
+                      placeholder='Name'
+                      name='name'
+                     
                     />
                   </div>
                 </div>
                
               </div>
               <div className="d-flex flex-row align-items-center mb-4 pb-1">
-                <img
-                  className="img-fluid"
-                  src="https://img.icons8.com/color/48/000000/visa.png"
-                alt='visa' />
+               
                 <div className="flex-fill mx-3">
                   <div className="form-outline">
                     <Form.Control
-                      label="Card Number"
-                      id="form2"
+                      label="email"
+                      id="email"
                       type="text"
                       size="lg"
-                      value="**** **** **** 4296"
+                     name='email'
+                     placeholder='Email adress'
                     />
                   </div>
                 </div>
                
               </div>
-              <p className="fw-bold mb-4">Add new card:</p>
+             
               <Form.Control
                 label="Cardholder's Name"
                 id="form3"
@@ -117,6 +127,7 @@ const Checkout = () => {
             
             </Card.Body>
           </Card>
+        </form>
         </Col>
       </Row>
     </Container>

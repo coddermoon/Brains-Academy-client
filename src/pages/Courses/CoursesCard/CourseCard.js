@@ -10,7 +10,7 @@ const CourseCard = () => {
   
 
   useEffect(() => {
-    fetch("https://learning-platform-assignment.vercel.app/categories")
+    fetch("http://localhost:5000/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   },[] );
@@ -18,7 +18,7 @@ const CourseCard = () => {
 
 
   useEffect(() => {
-    fetch("https://learning-platform-assignment.vercel.app/courses")
+    fetch("http://localhost:5000/courses")
       .then((res) => res.json())
       .then((data) =>setCourses(data));
   },[]);
