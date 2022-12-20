@@ -15,22 +15,22 @@ const Blogs = () => {
         {blogs.map((blog) => (
           <>
             <div className="blogs">
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-3">
+              <div className="card mb-3">
+                <div className="row g-0">
+                  <div className="col-md-3">
                     <img
                       style={{ height: "100%" }}
                       src={blog.img}
-                      class="img-fluid rounded-start"
+                      className="img-fluid rounded-start"
                       alt="..."
                     />
                   </div>
-                  <div class="col-md-9">
-                    <div class="card-body">
-                      <h5 class="card-title">{blog.question}</h5>
-                      <p class="card-text">{blog.ans}</p>
-                      <p class="card-text">
-                        <small class="text-muted">
+                  <div className="col-md-9">
+                    <div className="card-body">
+                      <h5 className="card-title">{blog.question}</h5>
+                      <p className="card-text">{blog.ans}</p>
+                      <p className="card-text">
+                        <small className="text-muted">
                           Last updated 3 mins ago
                         </small>
                       </p>
