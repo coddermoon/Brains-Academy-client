@@ -1,22 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { NavLink } from 'react-bootstrap';
+import React, { useContext } from 'react';
+
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Assets/Contexts/AuthProvider';
 import './CourseAside.css'
 
 const CourseAside = () => {
-    const [categories, setCategories] = useState([]);
-    const {user,logOut,setId}= useContext(AuthContext)
-    
-    const handleCard=(id)=>{
-        setId(id)
-    }
 
-    useEffect(() => {
-        fetch("https://learning-platform-assignment.vercel.app/categories")
-          .then((res) => res.json())
-          .then((data) => setCategories(data));
-      },[] );
+    const {user,logOut}= useContext(AuthContext)
+    
+  
+
+
 
     const handleLogout = ()=>{
         logOut()
@@ -30,7 +24,7 @@ const CourseAside = () => {
 
     return (
         <>
-           <div className="profile ">
+           <div className="profile sticky-top">
             <div className="rounded-img my-3">
                 <img src={user?.photoURL ? user.photoURL : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} alt="user" />
             </div>
@@ -49,14 +43,14 @@ const CourseAside = () => {
             <p className='text-center'>Please Login to Access Details</p>
            }
            </div>
-           <div className='lists'>
+           {/* <div className='lists'>
             {
                 categories.map(category=> <NavLink className='mx-4 '
                 key={category.id} onClick={()=>handleCard(category.category)}
                 >{category.name}</NavLink>)
             }
 
-           </div>
+           </div> */}
         </>
     );
 };
