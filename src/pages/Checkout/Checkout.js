@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Assets/Contexts/AuthProvider";
 import UseTitle from "../../Assets/Hooks/UseTitle";
 
 const Checkout = () => {
+  const {user} = useContext(AuthContext)
+
+
   const detailsData = useLoaderData();
   const { thumbnail, name, details, mainPrice } = detailsData;
   UseTitle("checkout");
@@ -15,8 +19,11 @@ const Checkout = () => {
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    const adress = form.adress.value;
-    console.log(name);
+    const adress = form.address.value;
+    const zipCode = form.zipCode.value;
+    const currency = form.currency.value;
+    const price = form.price.value;
+    console.log(name,email,adress,zipCode,price,currency);
   };
 
   return (
@@ -60,6 +67,8 @@ const Checkout = () => {
                               id="name"
                               type="text"
                               size="lg"
+                              disabled
+                              value={user?.displayName}
                               placeholder="Name"
                               name="name"
                             />
@@ -74,6 +83,8 @@ const Checkout = () => {
                               id="email"
                               type="text"
                               size="lg"
+                              disabled
+                              value={user?.email}
                               name="email"
                               placeholder="Email adress"
                             />
@@ -103,26 +114,29 @@ const Checkout = () => {
                             id="form4"
                             type="text"
                             size="lg"
-                            value="1234 5678 1234 5678"
+                            name="zipCode"
+                            placeholder="zip code"
                           />
                         </Col>
                         <Col size="3">
                           <Form.Control
                             label="Expire"
+                            name="price"
                             id="form5"
-                            type="password"
+                            type="text"
+                            disabled
                             size="lg"
-                            placeholder="MM/YYYY"
+                            value={mainPrice}
+                            placeholder="Amount"
                           />
                         </Col>
                         <Col size="2">
-                          <Form.Control
-                            label="CVV"
-                            id="form6"
-                            type="password"
-                            size="lg"
-                            placeholder="CVV"
-                          />
+                          <Form.Select
+                          name="currency"
+                          defaultValue="BDT">
+                            <option value="BDT">BDT</option>
+                            <option value="USD">USD</option>
+                          </Form.Select>
                         </Col>
                       </Row>
                       <div className="d-flex flex-column">
